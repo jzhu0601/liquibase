@@ -25,7 +25,8 @@
 				<version>3.4.1</version>
 				<configuration>
 					<!-- <propertyFile>src/main/resources/liquibase/liquibase.properties</propertyFile> -->
-					<changeLogFile>src/main/resources/liquibase/business_table.xml</changeLogFile>
+					<!-- <changeLogFile>src/main/resources/liquibase/business_table.xml</changeLogFile> -->
+					<changeLogFile>src/main/resources/liquibase/sql_testing.sql</changeLogFile> 
 					<driver>oracle.jdbc.OracleDriver</driver>
 					<url>jdbc:oracle:thin:@vmbiumft3:1521:orcl</url>
 					<username>liquibase</username>
