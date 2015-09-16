@@ -33,11 +33,22 @@
 					<username>liquibase</username>
 					<password>password</password> -->
 					<!-- for MSSQL -->
-					<changeLogFile>src/main/resources/liquibase/changelogMSSQL.xml</changeLogFile>
+					<!-- <changeLogFile>src/main/resources/liquibase/changelogMSSQL.xml</changeLogFile>
 					<driver>com.microsoft.sqlserver.jdbc.SQLServerDriver</driver>
 					<url>jdbc:sqlserver://192.168.2.38:1433;databaseName=liquibase</url>
 					<username>liquibase</username>
-					<password>password</password>
+					<password>password</password> -->
+					<!-- for DB2 -->
+					<changeLogFile>src/main/resources/liquibase/changelogDB2.xml</changeLogFile>
+					<driver>com.ibm.db2.jcc.DB2Driver</driver>
+					<url>jdbc:db2://192.168.2.43:50000/test</url>
+					<username>Administrator</username>
+					<password>@lm0stD0ne</password>
+					  <groupId>com.ibm.db2.jcc</groupId>
+                <artifactId>db2jcc</artifactId>
+                <version>9.7.0.4</version>
+                <packaging>jar</packaging>
+                <file>${basedir}/lib/db2jcc-9.7.0.4.jar</file>
 					
 					
 				</configuration>
@@ -65,9 +76,28 @@
 			<artifactId>sqljdbc4</artifactId>
 			<version>4.0</version>
 		</dependency>
+		
+			
+		<dependency>
+    <artifactId>com.ibm.db2.jcc</artifactId>
+    <groupId>db2jcc</groupId>
+    <version>4.9.78</version>
+    <scope>system</scope>
+    <systemPath>${basedir}/my-repo/com/ibm/db2/jcc/db2jcc/4.9.78/db2jcc-4.9.78.jar</systemPath>
+</dependency>
+		
+
+		
 
 	</dependencies>
+	
 
 
-
+<!-- <repositories>
+  <repository>
+    <id>my-local-repo</id>
+    <name>temporary repository for other jar files</name>
+    <url>file:${project.basedir}/my-repo</url>
+  </repository>
+</repositories> -->
 </project>
