@@ -23,42 +23,52 @@
 				<groupId>org.liquibase</groupId>
 				<artifactId>liquibase-maven-plugin</artifactId>
 				<version>3.4.1</version>
-				<configuration>
-					<!-- <propertyFile>src/main/resources/liquibase/liquibase.properties</propertyFile> -->
+				<!-- <configuration>
+					<propertyFile>src/main/resources/liquibase/liquibase.properties</propertyFile>
 					
-					<!-- this is for ORACLE -->
-					<!-- <changeLogFile>src/main/resources/liquibase/changelogORACLE.xml</changeLogFile>
+					this is for ORACLE
+					<changeLogFile>src/main/resources/liquibase/changelogORACLE.xml</changeLogFile>
 					 <driver>oracle.jdbc.OracleDriver</driver>
 					<url>jdbc:oracle:thin:@vmbiumft3:1521:orcl</url>
 					<username>liquibase</username>
-					<password>password</password> -->
-					<!-- for MSSQL -->
-					<!-- <changeLogFile>src/main/resources/liquibase/changelogMSSQL.xml</changeLogFile>
+					<password>password</password>
+					for MSSQL
+					<changeLogFile>src/main/resources/liquibase/changelogMSSQL.xml</changeLogFile>
 					<driver>com.microsoft.sqlserver.jdbc.SQLServerDriver</driver>
 					<url>jdbc:sqlserver://192.168.2.38:1433;databaseName=liquibase</url>
 					<username>liquibase</username>
-					<password>password</password> -->
-					<!-- for DB2 -->
-					<changeLogFile>src/main/resources/liquibase/changelogDB2.xml</changeLogFile>
+					<password>password</password>
+					for DB2
+					<changeLogFile>src/main/resources/liquibase/changelogMSSQL.xml</changeLogFile>
 					<driver>com.ibm.db2.jcc.DB2Driver</driver>
 					<url>jdbc:db2://192.168.2.43:50000/test</url>
 					<username>Administrator</username>
 					<password>@lm0stD0ne</password>
-					  <groupId>com.ibm.db2.jcc</groupId>
-                <artifactId>db2jcc</artifactId>
-                <version>9.7.0.4</version>
-                <packaging>jar</packaging>
-                <file>${basedir}/lib/db2jcc-9.7.0.4.jar</file>
 					
-					
-				</configuration>
+				</configuration> -->
 				<executions>
 					<execution>
-						<phase>process-resources</phase>
-						<goals>
-							<goal>update</goal>
-						</goals>
-					</execution>
+                        <id>oracle</id>
+                        <phase>process-resources</phase>
+                        <configuration>
+                            <propertyFile>src/main/resources/liquibase/oracle/dev.properties</propertyFile>
+                            <changeLogFile>src/main/resources/liquibase/oracle/changelogORACLE.xml</changeLogFile>
+                        </configuration>
+                        <goals>
+                            <goal>update</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <id>db2</id>
+                        <phase>process-resources</phase>
+                        <configuration>
+                            <propertyFile>src/main/resources/liquibase/db2/dev.properties</propertyFile>
+                            <changeLogFile>src/main/resources/liquibase/db2/changelogDB2.xml</changeLogFile>
+                        </configuration>
+                        <goals>
+                            <goal>update</goal>
+                        </goals>
+                    </execution>
 				</executions>
 			</plugin>
 		</plugins>
