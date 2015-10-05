@@ -1,0 +1,901 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+	xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+	<changeSet author="LabUser1 (generated)" id="1442254534068-1">
+		<createTable tableName="ALERT_HISTORY">
+			<column name="ALERT_ID" type="VARCHAR2(200 CHAR)">
+				<constraints nullable="false" />
+			</column>
+			<column name="ENTITY_PARAM_ID" type="VARCHAR2(200 CHAR)">
+				<constraints nullable="false" />
+			</column>
+			<column name="OPTION_VALUE_ID" type="VARCHAR2(200 CHAR)">
+				<constraints nullable="false" />
+			</column>
+			<column name="ENTITY_NAME" type="VARCHAR2(200 CHAR)" />
+			<column name="ALERT_ACTION" type="VARCHAR2(200 CHAR)" />
+			<column name="TIME_STAMP" type="date" />
+		</createTable>
+	</changeSet>
+
+	<changeSet author="LabUser1 (generated)" id="1442254534068-2">
+		<createTable tableName="IMPORT_HISTORY">
+			<column name="IMPORT_ID" type="VARCHAR2(200 CHAR)">
+				<constraints nullable="false" />
+			</column>
+			<column name="IMPORT_FILE_LOCATION" type="VARCHAR2(500 CHAR)">
+				<constraints nullable="false" />
+			</column>
+			<column name="IMPORT_FILE_NAME" type="VARCHAR2(200 CHAR)">
+				<constraints nullable="false" />
+			</column>
+			<column name="DESCRIPTION" type="VARCHAR2(500 CHAR)">
+				<constraints nullable="false" />
+			</column>
+			<column name="USERNAME" type="VARCHAR2(100 CHAR)">
+				<constraints nullable="false" />
+			</column>
+			<column name="TIME_STAMP" type="date">
+				<constraints nullable="false" />
+			</column>
+		</createTable>
+	</changeSet>
+
+	<changeSet author="LabUser1 (generated)" id="1442254534068-3">
+		<createTable tableName="LIVE_BROADCAST_CONSUMERS">
+			<column name="BROADCAST_ID" type="VARCHAR2(200 CHAR)">
+				<constraints nullable="false" />
+			</column>
+			<column name="FILE_FLOW_ID" type="VARCHAR2(200 CHAR)">
+				<constraints nullable="false" />
+			</column>
+			<column name="CONSUMER_NAME" type="VARCHAR2(200 CHAR)">
+				<constraints nullable="false" />
+			</column>
+		</createTable>
+	</changeSet>
+	<changeSet author="LabUser1 (generated)" id="1442254534068-4">
+		<createTable tableName="LIVE_COMM">
+			<column name="CONSUMER_NAME" type="VARCHAR2(200 CHAR)">
+				<constraints nullable="false" />
+			</column>
+			<column name="PROCESS_NAME" type="VARCHAR2(200 CHAR)">
+				<constraints nullable="false" />
+			</column>
+		</createTable>
+	</changeSet>
+	<changeSet author="LabUser1 (generated)" id="1442254534068-5">
+		<createTable tableName="LIVE_COMM_OVERRIDES">
+			<column name="OVERRIDE_PARAM_ID" type="VARCHAR2(200 CHAR)">
+				<constraints nullable="false" />
+			</column>
+			<column name="FILE_FLOW_ID" type="VARCHAR2(200 CHAR)">
+				<constraints nullable="false" />
+			</column>
+			<column name="PARAM_NAME" type="VARCHAR2(200 CHAR)">
+				<constraints nullable="false" />
+			</column>
+			<column name="PARAM_VALUE" type="VARCHAR2(200 CHAR)" />
+		</createTable>
+	</changeSet>
+	<changeSet author="LabUser1 (generated)" id="1442254534068-6">
+		<createTable tableName="LIVE_COMM_PARAMS">
+			<column name="COMM_PARAM_ID" type="VARCHAR2(200 CHAR)">
+				<constraints nullable="false" />
+			</column>
+			<column name="CONSUMER_NAME" type="VARCHAR2(200 CHAR)">
+				<constraints nullable="false" />
+			</column>
+			<column name="PARAM_NAME" type="VARCHAR2(200 CHAR)">
+				<constraints nullable="false" />
+			</column>
+			<column name="PARAM_VALUE" type="VARCHAR2(200 CHAR)" />
+		</createTable>
+	</changeSet>
+	<changeSet author="LabUser1 (generated)" id="1442254534068-7">
+		<createTable tableName="LIVE_ENTITY_FILE_FLOW">
+			<column name="FILE_FLOW_ID" type="VARCHAR2(200 CHAR)">
+				<constraints nullable="false" />
+			</column>
+			<column name="PRODUCER_NAME" type="VARCHAR2(200 CHAR)">
+				<constraints nullable="false" />
+			</column>
+			<column name="FILE_VALIDATION" type="VARCHAR2(200 CHAR)">
+				<constraints nullable="false" />
+			</column>
+			<column name="CONSUMER_NAME" type="VARCHAR2(200 CHAR)" />
+		</createTable>
+	</changeSet>
+	<changeSet author="LabUser1 (generated)" id="1442254534068-8">
+		<createTable tableName="LIVE_FLOW_PROCESSES">
+			<column name="FLOW_PROCESS_ID" type="VARCHAR2(200 CHAR)">
+				<constraints nullable="false" />
+			</column>
+			<column name="FILE_FLOW_ID" type="VARCHAR2(200 CHAR)">
+				<constraints nullable="false" />
+			</column>
+			<column name="PROCESS_NAME" type="VARCHAR2(200 CHAR)">
+				<constraints nullable="false" />
+			</column>
+			<column name="RUN_ORDER" type="NUMBER(*, 0)">
+				<constraints nullable="false" />
+			</column>
+		</createTable>
+	</changeSet>
+	<changeSet author="LabUser1 (generated)" id="1442254534068-9">
+		<createTable tableName="LIVE_PROCESS_PARAMS">
+			<column name="FLOW_PARAM_ID" type="VARCHAR2(200 CHAR)">
+				<constraints nullable="false" />
+			</column>
+			<column name="FLOW_PROCESS_ID" type="VARCHAR2(200 CHAR)">
+				<constraints nullable="false" />
+			</column>
+			<column name="PARAM_NAME" type="VARCHAR2(200 CHAR)">
+				<constraints nullable="false" />
+			</column>
+			<column name="PARAM_VALUE" type="VARCHAR2(200 CHAR)" />
+		</createTable>
+	</changeSet>
+	<changeSet author="LabUser1 (generated)" id="1442254534068-10">
+		<createTable tableName="PATTERN_DATA_FLOW">
+			<column name="PATTERN_ID" type="VARCHAR2(200 CHAR)">
+				<constraints nullable="false" />
+			</column>
+			<column name="PATTERN_NAME" type="VARCHAR2(200 CHAR)">
+				<constraints nullable="false" />
+			</column>
+			<column name="LAST_MOD_USER" type="VARCHAR2(200 CHAR)" />
+			<column name="LAST_MOD_DATE" type="date" />
+		</createTable>
+	</changeSet>
+	<changeSet author="LabUser1 (generated)" id="1442254534068-11">
+		<createTable tableName="PATTERN_DATA_FLOW_PROCESSES">
+			<column name="PATTERN_PROCESS_ID" type="VARCHAR2(200 CHAR)">
+				<constraints nullable="false" />
+			</column>
+			<column name="PATTERN_ID" type="VARCHAR2(200 CHAR)">
+				<constraints nullable="false" />
+			</column>
+			<column name="SETUP_PROCESS_ID" type="VARCHAR2(200 CHAR)">
+				<constraints nullable="false" />
+			</column>
+			<column name="FLOW_PROCESS_ORDER_NUM" type="NUMBER(*, 0)">
+				<constraints nullable="false" />
+			</column>
+		</createTable>
+	</changeSet>
+	<changeSet author="LabUser1 (generated)" id="1442254534068-12">
+		<createTable tableName="PATTERN_PROCESS_PARAMS">
+			<column name="PARAM_ID" type="VARCHAR2(200 CHAR)">
+				<constraints nullable="false" />
+			</column>
+			<column name="PATTERN_PROCESS_ID" type="VARCHAR2(200 CHAR)">
+				<constraints nullable="false" />
+			</column>
+			<column name="PARAM_NAME" type="VARCHAR2(200 CHAR)">
+				<constraints nullable="false" />
+			</column>
+			<column name="PARAM_VALUE" type="VARCHAR2(2000 CHAR)" />
+		</createTable>
+	</changeSet>
+	<changeSet author="LabUser1 (generated)" id="1442254534068-13">
+		<createTable tableName="PREF_REPORT">
+			<column name="REPORT_ID" type="VARCHAR2(200)">
+				<constraints nullable="false" />
+			</column>
+			<column name="REPORT_NAME" type="VARCHAR2(200 CHAR)">
+				<constraints nullable="false" />
+			</column>
+			<column name="REPORT_USER" type="VARCHAR2(100 CHAR)">
+				<constraints nullable="false" />
+			</column>
+			<column name="REPORT_EMAIL" type="VARCHAR2(100 CHAR)">
+				<constraints nullable="false" />
+			</column>
+			<column name="REPORT_TYPE" type="VARCHAR2(10 CHAR)">
+				<constraints nullable="false" />
+			</column>
+			<column name="OUTPUT_FORMAT" type="VARCHAR2(10 CHAR)">
+				<constraints nullable="false" />
+			</column>
+			<column name="LAST_MOD_USER" type="VARCHAR2(200 CHAR)">
+				<constraints nullable="false" />
+			</column>
+			<column name="LAST_MOD_DATE" type="date">
+				<constraints nullable="false" />
+			</column>
+		</createTable>
+	</changeSet>
+	<changeSet author="LabUser1 (generated)" id="1442254534068-14">
+		<createTable tableName="PREF_REPORT_CUSTOM_SQL">
+			<column name="SQL_ID" type="VARCHAR2(200 CHAR)">
+				<constraints nullable="false" />
+			</column>
+			<column name="REPORT_ID" type="VARCHAR2(200)">
+				<constraints nullable="false" />
+			</column>
+			<column name="GRAPH_LABEL" type="VARCHAR2(200 CHAR)">
+				<constraints nullable="false" />
+			</column>
+			<column name="GRAPH_TYPE" type="VARCHAR2(20 CHAR)">
+				<constraints nullable="false" />
+			</column>
+			<column name="CUSTOM_SQL" type="VARCHAR2(4000 CHAR)">
+				<constraints nullable="false" />
+			</column>
+		</createTable>
+	</changeSet>
+	<changeSet author="LabUser1 (generated)" id="1442254534068-15">
+		<createTable tableName="PREF_REPORT_PARAMS">
+			<column name="REPORT_PARAM_ID" type="VARCHAR2(200 CHAR)">
+				<constraints nullable="false" />
+			</column>
+			<column name="REPORT_ID" type="VARCHAR2(200)">
+				<constraints nullable="false" />
+			</column>
+			<column name="DROPDOWN_ENTITY_PARAM_ID" type="VARCHAR2(200 CHAR)">
+				<constraints nullable="false" />
+			</column>
+			<column name="SEARCH_PARAM_NAME" type="VARCHAR2(200 CHAR)">
+				<constraints nullable="false" />
+			</column>
+			<column name="SEARCH_PARAM_VALUE" type="VARCHAR2(200 CHAR)">
+				<constraints nullable="false" />
+			</column>
+			<column name="SEARCH_OPERATOR" type="VARCHAR2(20 CHAR)">
+				<constraints nullable="false" />
+			</column>
+			<column name="SEARCH_PARAM_DISPLAY_LABEL" type="VARCHAR2(200 CHAR)">
+				<constraints nullable="false" />
+			</column>
+		</createTable>
+	</changeSet>
+	<changeSet author="LabUser1 (generated)" id="1442254534068-16">
+		<createTable tableName="PREF_REPORT_SCHEDULES">
+			<column name="SCHEDULE_ID" type="VARCHAR2(200 CHAR)">
+				<constraints nullable="false" />
+			</column>
+			<column name="REPORT_ID" type="VARCHAR2(200)">
+				<constraints nullable="false" />
+			</column>
+			<column defaultValue="*/30" name="EXECUTION_MINUTES" type="VARCHAR2(200 CHAR)">
+				<constraints nullable="false" />
+			</column>
+			<column defaultValue="*" name="EXECUTION_HOURS" type="VARCHAR2(200 CHAR)">
+				<constraints nullable="false" />
+			</column>
+			<column defaultValue="*" name="EXECUTION_DOW" type="VARCHAR2(200 CHAR)">
+				<constraints nullable="false" />
+			</column>
+			<column defaultValue="*" name="EXECUTION_DOM" type="VARCHAR2(200 CHAR)">
+				<constraints nullable="false" />
+			</column>
+			<column defaultValueNumeric="0" name="ENABLED" type="NUMBER(*, 0)">
+				<constraints nullable="false" />
+			</column>
+		</createTable>
+	</changeSet>
+	<changeSet author="LabUser1 (generated)" id="1442254534068-17">
+		<createTable tableName="PREF_SAVED_SEARCH">
+			<column name="SAVE_SEARCH_ID" type="VARCHAR2(200 CHAR)">
+				<constraints nullable="false" />
+			</column>
+			<column name="SAVE_SEARCH_NAME" type="VARCHAR2(200 CHAR)">
+				<constraints nullable="false" />
+			</column>
+			<column name="SCREEN" type="VARCHAR2(20 CHAR)" />
+		</createTable>
+	</changeSet>
+	<changeSet author="LabUser1 (generated)" id="1442254534068-18">
+		<createTable tableName="PREF_SAVE_SEARCH_PARAMS">
+			<column name="SAVE_SEARCH_PARAM_ID" type="VARCHAR2(200 CHAR)">
+				<constraints nullable="false" />
+			</column>
+			<column name="SAVE_SEARCH_ID" type="VARCHAR2(200 CHAR)">
+				<constraints nullable="false" />
+			</column>
+			<column name="DROPDOWN_ENTITY_PARAM_ID" type="VARCHAR2(200 CHAR)">
+				<constraints nullable="false" />
+			</column>
+			<column name="SEARCH_PARAM_NAME" type="VARCHAR2(200 CHAR)">
+				<constraints nullable="false" />
+			</column>
+			<column name="SEARCH_PARAM_VALUE" type="VARCHAR2(200 CHAR)">
+				<constraints nullable="false" />
+			</column>
+			<column name="SEARCH_OPERATOR" type="VARCHAR2(20 CHAR)">
+				<constraints nullable="false" />
+			</column>
+			<column name="SEARCH_PARAM_DISPLAY_LABEL" type="VARCHAR2(200 CHAR)">
+				<constraints nullable="false" />
+			</column>
+		</createTable>
+	</changeSet>
+	<changeSet author="LabUser1 (generated)" id="1442254534068-19">
+		<createTable tableName="PUBLISH_HISTORY">
+			<column name="PUBLISH_ID" type="VARCHAR2(200 CHAR)">
+				<constraints nullable="false" />
+			</column>
+			<column name="ENTITY_ID" type="VARCHAR2(200 CHAR)">
+				<constraints nullable="false" />
+			</column>
+			<column name="ENTITY_NAME" type="VARCHAR2(200 CHAR)" />
+			<column name="DESCRIPTION" type="VARCHAR2(200 CHAR)" />
+			<column name="USERNAME" type="VARCHAR2(200 CHAR)" />
+			<column name="TIME_STAMP" type="date" />
+		</createTable>
+	</changeSet>
+	<changeSet author="LabUser1 (generated)" id="1442254534068-20">
+		<createTable tableName="SETUP_COMMS">
+			<column name="SETUP_COMM_ID" type="VARCHAR2(200 CHAR)">
+				<constraints nullable="false" />
+			</column>
+			<column name="COMM_TYPE" type="VARCHAR2(20 CHAR)">
+				<constraints nullable="false" />
+			</column>
+			<column name="PROCESS_NAME" type="VARCHAR2(200 CHAR)">
+				<constraints nullable="false" />
+			</column>
+			<column name="PROTOCOL" type="VARCHAR2(200 CHAR)">
+				<constraints nullable="false" />
+			</column>
+			<column name="HELP_INFO" type="VARCHAR2(200 CHAR)" />
+			<column defaultValueNumeric="0" name="SCHEDULE_FLAG" type="NUMBER(*, 0)">
+				<constraints nullable="false" />
+			</column>
+			<column defaultValueNumeric="1" name="ENABLE_FLAG" type="NUMBER(*, 0)">
+				<constraints nullable="false" />
+			</column>
+		</createTable>
+	</changeSet>
+	<changeSet author="LabUser1 (generated)" id="1442254534068-21">
+		<createTable tableName="SETUP_COMM_PARAMS">
+			<column name="COMM_PARAM_ID" type="VARCHAR2(200 CHAR)">
+				<constraints nullable="false" />
+			</column>
+			<column name="COMM_ID" type="VARCHAR2(200 CHAR)">
+				<constraints nullable="false" />
+			</column>
+			<column name="PARAM_NAME" type="VARCHAR2(200 CHAR)">
+				<constraints nullable="false" />
+			</column>
+			<column name="INPUT_ORDER" type="NUMBER(*, 0)">
+				<constraints nullable="false" />
+			</column>
+			<column name="INPUT_LABEL" type="VARCHAR2(200 CHAR)">
+				<constraints nullable="false" />
+			</column>
+			<column name="INPUT_HELP_INFO" type="VARCHAR2(2000 CHAR)" />
+			<column name="INPUT_TYPE" type="VARCHAR2(200 CHAR)">
+				<constraints nullable="false" />
+			</column>
+			<column name="INPUT_VALIDATION" type="VARCHAR2(200 CHAR)" />
+			<column name="DEFAULT_VALUE" type="VARCHAR2(200 CHAR)" />
+			<column defaultValueNumeric="0" name="REQUIRED_FLAG" type="NUMBER(*, 0)">
+				<constraints nullable="false" />
+			</column>
+			<column defaultValueNumeric="0" name="SENSITIVE_FLAG" type="NUMBER(*, 0)">
+				<constraints nullable="false" />
+			</column>
+			<column defaultValueNumeric="0" name="OVERRIDE_FLAG" type="NUMBER(*, 0)">
+				<constraints nullable="false" />
+			</column>
+			<column name="OPTION_ID" type="VARCHAR2(200 CHAR)" />
+			<column name="SETUP_LINK_URI" type="VARCHAR2(500 CHAR)" />
+			<column name="SETUP_LINK_LABEL" type="VARCHAR2(200 CHAR)" />
+		</createTable>
+	</changeSet>
+	<changeSet author="LabUser1 (generated)" id="1442254534068-22">
+		<createTable tableName="SETUP_ENTITY_GROUPS">
+			<column name="GROUP_ID" type="VARCHAR2(200 CHAR)">
+				<constraints nullable="false" />
+			</column>
+			<column name="GROUP_NAME" type="VARCHAR2(200 CHAR)">
+				<constraints nullable="false" />
+			</column>
+		</createTable>
+	</changeSet>
+	<changeSet author="LabUser1 (generated)" id="1442254534068-23">
+		<createTable tableName="SETUP_ENTITY_PARAMS">
+			<column name="SETUP_ENTITY_PARAM_ID" type="VARCHAR2(200 CHAR)">
+				<constraints nullable="false" />
+			</column>
+			<column name="TAB_ID" type="VARCHAR2(200 CHAR)">
+				<constraints nullable="false" />
+			</column>
+			<column name="PARAM_NAME" type="VARCHAR2(200 CHAR)">
+				<constraints nullable="false" />
+			</column>
+			<column name="INPUT_ORDER" type="NUMBER(*, 0)">
+				<constraints nullable="false" />
+			</column>
+			<column name="INPUT_LABEL" type="VARCHAR2(200 CHAR)" />
+			<column name="INPUT_HELP_INFO" type="VARCHAR2(200 CHAR)" />
+			<column name="INPUT_TYPE" type="VARCHAR2(200 CHAR)" />
+			<column name="INPUT_VALIDATION" type="VARCHAR2(200 CHAR)" />
+			<column name="DEFAULT_VALUE" type="VARCHAR2(200 CHAR)" />
+			<column name="OPTION_ID" type="VARCHAR2(200 CHAR)" />
+			<column name="SENSITIVE_FLAG" type="NUMBER(*, 0)" />
+			<column name="ON_GRID_FLAG" type="NUMBER(*, 0)" />
+			<column name="PROTECTED_FLAG" type="NUMBER(*, 0)" />
+			<column name="REQUIRED_FLAG" type="NUMBER(*, 0)" />
+			<column defaultValueNumeric="0" name="AT_FLAG" type="NUMBER(*, 0)" />
+			<column name="AT_UPDATE_PARAM_ID" type="VARCHAR2(200 CHAR)" />
+			<column name="AT_GROUP_VALUE_ID" type="VARCHAR2(200 CHAR)" />
+		</createTable>
+	</changeSet>
+	<changeSet author="LabUser1 (generated)" id="1442254534068-24">
+		<createTable tableName="SETUP_ENTITY_PARAM_TABS">
+			<column name="TAB_ID" type="VARCHAR2(200 CHAR)">
+				<constraints nullable="false" />
+			</column>
+			<column name="TAB_NAME" type="VARCHAR2(200 CHAR)">
+				<constraints nullable="false" />
+			</column>
+			<column name="ORDER_NUM" type="NUMBER(*, 0)">
+				<constraints nullable="false" />
+			</column>
+		</createTable>
+	</changeSet>
+	<changeSet author="LabUser1 (generated)" id="1442254534068-25">
+		<createTable tableName="SETUP_FLOW_PARAMS">
+			<column name="SETUP_FLOW_PARAM_ID" type="VARCHAR2(200 CHAR)">
+				<constraints nullable="false" />
+			</column>
+			<column name="TAB_ID" type="VARCHAR2(200 CHAR)">
+				<constraints nullable="false" />
+			</column>
+			<column name="PARAM_NAME" type="VARCHAR2(200 CHAR)">
+				<constraints nullable="false" />
+			</column>
+			<column name="INPUT_ORDER" type="NUMBER(*, 0)">
+				<constraints nullable="false" />
+			</column>
+			<column name="INPUT_LABEL" type="VARCHAR2(200 CHAR)" />
+			<column name="INPUT_HELP_INFO" type="VARCHAR2(200 CHAR)" />
+			<column name="INPUT_TYPE" type="VARCHAR2(200 CHAR)" />
+			<column name="INPUT_VALIDATION" type="VARCHAR2(200 CHAR)" />
+			<column name="DEFAULT_VALUE" type="VARCHAR2(200 CHAR)" />
+			<column name="OPTION_ID" type="VARCHAR2(200 CHAR)" />
+			<column name="SENSITIVE_FLAG" type="NUMBER(*, 0)" />
+			<column name="ON_GRID_FLAG" type="NUMBER(*, 0)" />
+			<column name="REQUIRED_FLAG" type="NUMBER(*, 0)" />
+			<column defaultValueNumeric="0" name="AT_FLAG" type="NUMBER(*, 0)" />
+			<column name="AT_UPDATE_PARAM_ID" type="VARCHAR2(200 CHAR)" />
+			<column name="AT_GROUP_VALUE_ID" type="VARCHAR2(200 CHAR)" />
+		</createTable>
+	</changeSet>
+	<changeSet author="LabUser1 (generated)" id="1442254534068-26">
+		<createTable tableName="SETUP_FLOW_PARAM_TABS">
+			<column name="TAB_ID" type="VARCHAR2(200 CHAR)">
+				<constraints nullable="false" />
+			</column>
+			<column name="TAB_NAME" type="VARCHAR2(200 CHAR)">
+				<constraints nullable="false" />
+			</column>
+			<column name="ORDER_NUM" type="NUMBER(*, 0)">
+				<constraints nullable="false" />
+			</column>
+		</createTable>
+	</changeSet>
+	<changeSet author="LabUser1 (generated)" id="1442254534068-27">
+		<createTable tableName="SETUP_OPTION_VALUES">
+			<column name="OPTION_VALUE_ID" type="VARCHAR2(200 CHAR)">
+				<constraints nullable="false" />
+			</column>
+			<column name="OPTION_ID" type="VARCHAR2(200 CHAR)">
+				<constraints nullable="false" />
+			</column>
+			<column name="DISPLAY_LABEL" type="VARCHAR2(200 CHAR)">
+				<constraints nullable="false" />
+			</column>
+			<column name="VALUE" type="VARCHAR2(200 CHAR)">
+				<constraints nullable="false" />
+			</column>
+			<column defaultValueNumeric="0" name="DEFAULT_FLAG" type="NUMBER(*, 0)">
+				<constraints nullable="false" />
+			</column>
+			<column defaultValueNumeric="0" name="TRIGGER_ALERT" type="NUMBER(*, 0)">
+				<constraints nullable="false" />
+			</column>
+			<column defaultValueNumeric="0" name="TRIGGER_ACTIONABLE"
+				type="NUMBER(*, 0)">
+				<constraints nullable="false" />
+			</column>
+			<column name="TRIGGER_ACTION" type="VARCHAR2(400 CHAR)" />
+			<column defaultValueNumeric="0" name="DISPLAY_ORDER" type="NUMBER(*, 0)" />
+		</createTable>
+	</changeSet>
+	<changeSet author="LabUser1 (generated)" id="1442254534068-28">
+		<createTable tableName="SETUP_PARAM_OPTION">
+			<column name="OPTION_ID" type="VARCHAR2(200 CHAR)">
+				<constraints nullable="false" />
+			</column>
+			<column name="OPTION_NAME" type="VARCHAR2(200 CHAR)">
+				<constraints nullable="false" />
+			</column>
+		</createTable>
+	</changeSet>
+	<changeSet author="LabUser1 (generated)" id="1442254534068-29">
+		<createTable tableName="SETUP_PROCESSES">
+			<column name="SETUP_PROCESS_ID" type="VARCHAR2(200 CHAR)">
+				<constraints nullable="false" />
+			</column>
+			<column name="PROCESS_NAME" type="VARCHAR2(200 CHAR)">
+				<constraints nullable="false" />
+			</column>
+			<column defaultValueNumeric="1" name="ENABLE_FLAG" type="NUMBER(*, 0)">
+				<constraints nullable="false" />
+			</column>
+		</createTable>
+	</changeSet>
+	<changeSet author="LabUser1 (generated)" id="1442254534068-30">
+		<createTable tableName="SETUP_PROCESS_PARAMS">
+			<column name="SETUP_PROCESS_PARAM_ID" type="VARCHAR2(200 CHAR)">
+				<constraints nullable="false" />
+			</column>
+			<column name="SETUP_PROCESS_ID" type="VARCHAR2(200 CHAR)">
+				<constraints nullable="false" />
+			</column>
+			<column name="PARAM_NAME" type="VARCHAR2(200 CHAR)">
+				<constraints nullable="false" />
+			</column>
+			<column name="INPUT_ORDER" type="NUMBER(*, 0)">
+				<constraints nullable="false" />
+			</column>
+			<column name="INPUT_LABEL" type="VARCHAR2(200 CHAR)">
+				<constraints nullable="false" />
+			</column>
+			<column name="INPUT_HELP_INFO" type="VARCHAR2(2000 CHAR)" />
+			<column name="INPUT_TYPE" type="VARCHAR2(200 CHAR)">
+				<constraints nullable="false" />
+			</column>
+			<column name="INPUT_VALIDATION" type="VARCHAR2(200 CHAR)" />
+			<column name="DEFAULT_VALUE" type="VARCHAR2(200 CHAR)" />
+			<column defaultValueNumeric="0" name="REQUIRED_FLAG" type="NUMBER(*, 0)">
+				<constraints nullable="false" />
+			</column>
+			<column defaultValueNumeric="0" name="SENSITIVE_FLAG" type="NUMBER(*, 0)">
+				<constraints nullable="false" />
+			</column>
+			<column name="OPTION_ID" type="VARCHAR2(200 CHAR)" />
+			<column name="SETUP_LINK_URI" type="VARCHAR2(500 CHAR)" />
+			<column name="SETUP_LINK_LABEL" type="VARCHAR2(200 CHAR)" />
+		</createTable>
+	</changeSet>
+	<changeSet author="LabUser1 (generated)" id="1442254534068-31">
+		<createTable tableName="SETUP_USER">
+			<column name="USER_NAME" type="VARCHAR2(200 CHAR)">
+				<constraints nullable="false" />
+			</column>
+			<column name="FIRST_NAME" type="VARCHAR2(200 CHAR)" />
+			<column name="LAST_NAME" type="VARCHAR2(200 CHAR)" />
+		</createTable>
+	</changeSet>
+	<changeSet author="LabUser1 (generated)" id="1442254534068-32">
+		<createTable tableName="SETUP_USER_GROUP">
+			<column name="USER_GROUP_ID" type="VARCHAR2(200 CHAR)">
+				<constraints nullable="false" />
+			</column>
+			<column name="USER_NAME" type="VARCHAR2(200 CHAR)">
+				<constraints nullable="false" />
+			</column>
+			<column name="GROUP_NAME" type="VARCHAR2(200 CHAR)">
+				<constraints nullable="false" />
+			</column>
+			<column name="GROUP_ID" type="VARCHAR2(200 CHAR)">
+				<constraints nullable="false" />
+			</column>
+		</createTable>
+	</changeSet>
+	<changeSet author="LabUser1 (generated)" id="1442254534068-33">
+		<createTable tableName="STAGE_BROADCAST">
+			<column name="BROADCAST_ID" type="VARCHAR2(200 CHAR)">
+				<constraints nullable="false" />
+			</column>
+			<column name="FLOW_ID" type="VARCHAR2(200 CHAR)">
+				<constraints nullable="false" />
+			</column>
+			<column name="CONSUMER_ENTITY_ID" type="VARCHAR2(200 CHAR)">
+				<constraints nullable="false" />
+			</column>
+		</createTable>
+	</changeSet>
+	<changeSet author="LabUser1 (generated)" id="1442254534068-34">
+		<createTable tableName="STAGE_COMM_OVERRIDES">
+			<column name="PARAM_ID" type="VARCHAR2(200 CHAR)">
+				<constraints nullable="false" />
+			</column>
+			<column name="FLOW_ID" type="VARCHAR2(200 CHAR)">
+				<constraints nullable="false" />
+			</column>
+			<column name="COMM_ID" type="VARCHAR2(200 CHAR)">
+				<constraints nullable="false" />
+			</column>
+			<column name="PARAM_NAME" type="VARCHAR2(200 CHAR)">
+				<constraints nullable="false" />
+			</column>
+			<column name="PARAM_VALUE" type="VARCHAR2(2000 CHAR)" />
+		</createTable>
+	</changeSet>
+	<changeSet author="LabUser1 (generated)" id="1442254534068-35">
+		<createTable tableName="STAGE_COMM_SCHEDULES">
+			<column name="SCHEDULE_ID" type="VARCHAR2(200 CHAR)">
+				<constraints nullable="false" />
+			</column>
+			<column name="ENTITY_COMM_ID" type="VARCHAR2(200 CHAR)">
+				<constraints nullable="false" />
+			</column>
+			<column defaultValue="*/30" name="EXECUTION_MINUTES" type="VARCHAR2(200 CHAR)">
+				<constraints nullable="false" />
+			</column>
+			<column defaultValue="*" name="EXECUTION_HOURS" type="VARCHAR2(200 CHAR)">
+				<constraints nullable="false" />
+			</column>
+			<column defaultValue="*" name="EXECUTION_DOW" type="VARCHAR2(200 CHAR)">
+				<constraints nullable="false" />
+			</column>
+			<column defaultValue="*" name="EXECUTION_DOM" type="VARCHAR2(200 CHAR)">
+				<constraints nullable="false" />
+			</column>
+			<column defaultValueNumeric="1" name="ENABLED" type="NUMBER(*, 0)">
+				<constraints nullable="false" />
+			</column>
+		</createTable>
+	</changeSet>
+	<changeSet author="LabUser1 (generated)" id="1442254534068-36">
+		<createTable tableName="STAGE_DATA_FLOW">
+			<column name="FLOW_ID" type="VARCHAR2(200 CHAR)">
+				<constraints nullable="false" />
+			</column>
+			<column name="ENTITY_ID" type="VARCHAR2(200 CHAR)">
+				<constraints nullable="false" />
+			</column>
+			<column name="FILE_ID" type="VARCHAR2(200 CHAR)">
+				<constraints nullable="false" />
+			</column>
+			<column name="FLOW_NAME" type="VARCHAR2(200 CHAR)">
+				<constraints nullable="false" />
+			</column>
+			<column name="CONSUMER_ENTITY_ID" type="VARCHAR2(200 CHAR)" />
+			<column name="ERROR_EMAIL_ADDR" type="VARCHAR2(200 CHAR)" />
+			<column defaultValueNumeric="0" name="BROADCAST_FLAG" type="NUMBER(*, 0)">
+				<constraints nullable="false" />
+			</column>
+			<column name="LAST_MOD_USER" type="VARCHAR2(200 CHAR)" />
+			<column name="LAST_MOD_DATE" type="date" />
+		</createTable>
+	</changeSet>
+	<changeSet author="LabUser1 (generated)" id="1442254534068-37">
+		<createTable tableName="STAGE_DATA_FLOW_PROCESSES">
+			<column name="FLOW_PROCESS_ID" type="VARCHAR2(200 CHAR)">
+				<constraints nullable="false" />
+			</column>
+			<column name="FLOW_ID" type="VARCHAR2(200 CHAR)">
+				<constraints nullable="false" />
+			</column>
+			<column name="SETUP_PROCESS_ID" type="VARCHAR2(200 CHAR)">
+				<constraints nullable="false" />
+			</column>
+			<column name="FLOW_PROCESS_ORDER_NUM" type="NUMBER(*, 0)">
+				<constraints nullable="false" />
+			</column>
+		</createTable>
+	</changeSet>
+	<changeSet author="LabUser1 (generated)" id="1442254534068-38">
+		<createTable tableName="STAGE_DATA_FLOW_PROCESS_PARAMS">
+			<column name="PARAM_ID" type="VARCHAR2(200 CHAR)">
+				<constraints nullable="false" />
+			</column>
+			<column name="FLOW_PROCESS_ID" type="VARCHAR2(200 CHAR)">
+				<constraints nullable="false" />
+			</column>
+			<column name="PARAM_NAME" type="VARCHAR2(200 CHAR)">
+				<constraints nullable="false" />
+			</column>
+			<column name="PARAM_VALUE" type="VARCHAR2(2000 CHAR)" />
+		</createTable>
+	</changeSet>
+	<changeSet author="LabUser1 (generated)" id="1442254534068-39">
+		<createTable tableName="STAGE_ENTITY">
+			<column name="ENTITY_ID" type="VARCHAR2(200 CHAR)">
+				<constraints nullable="false" />
+			</column>
+			<column name="ENTITY_NAME" type="VARCHAR2(200 CHAR)">
+				<constraints nullable="false" />
+			</column>
+			<column name="USERNAME" type="VARCHAR2(50 CHAR)">
+				<constraints nullable="false" />
+			</column>
+			<column name="PARTNER_NAME" type="VARCHAR2(100 CHAR)">
+				<constraints nullable="false" />
+			</column>
+			<column name="LAST_MOD_USER" type="VARCHAR2(200 CHAR)" />
+			<column name="LAST_MOD_DATE" type="date" />
+		</createTable>
+	</changeSet>
+	<changeSet author="LabUser1 (generated)" id="1442254534068-40">
+		<createTable tableName="STAGE_ENTITY_COMM">
+			<column name="ENTITY_COMM_ID" type="VARCHAR2(200 CHAR)">
+				<constraints nullable="false" />
+			</column>
+			<column name="ENTITY_ID" type="VARCHAR2(200 CHAR)">
+				<constraints nullable="false" />
+			</column>
+			<column name="COMM_TYPE" type="VARCHAR2(20 CHAR)">
+				<constraints nullable="false" />
+			</column>
+			<column name="COMM_NAME" type="VARCHAR2(200 CHAR)">
+				<constraints nullable="false" />
+			</column>
+			<column name="PROCESS_NAME" type="VARCHAR2(200 CHAR)">
+				<constraints nullable="false" />
+			</column>
+			<column name="PROTOCOL" type="VARCHAR2(200 CHAR)">
+				<constraints nullable="false" />
+			</column>
+			<column name="LAST_MOD_USER" type="VARCHAR2(200 CHAR)" />
+			<column name="LAST_MOD_DATE" type="date" />
+		</createTable>
+	</changeSet>
+	<changeSet author="LabUser1 (generated)" id="1442254534068-41">
+		<createTable tableName="STAGE_ENTITY_COMM_PARAMS">
+			<column name="PARAM_ID" type="VARCHAR2(200 CHAR)">
+				<constraints nullable="false" />
+			</column>
+			<column name="ENTITY_COMM_ID" type="VARCHAR2(200 CHAR)">
+				<constraints nullable="false" />
+			</column>
+			<column name="PARAM_NAME" type="VARCHAR2(200 CHAR)">
+				<constraints nullable="false" />
+			</column>
+			<column name="PARAM_VALUE" type="VARCHAR2(200 CHAR)" />
+			<column name="LAST_MOD_USER" type="VARCHAR2(200 CHAR)" />
+			<column name="LAST_MOD_DATE" type="date" />
+		</createTable>
+	</changeSet>
+	<changeSet author="LabUser1 (generated)" id="1442254534068-42">
+		<createTable tableName="STAGE_ENTITY_FILE">
+			<column name="FILE_ID" type="VARCHAR2(200 CHAR)">
+				<constraints nullable="false" />
+			</column>
+			<column name="ENTITY_ID" type="VARCHAR2(200 CHAR)">
+				<constraints nullable="false" />
+			</column>
+			<column name="TYPE" type="VARCHAR2(200 CHAR)">
+				<constraints nullable="false" />
+			</column>
+			<column name="VALIDATION" type="VARCHAR2(200 CHAR)" />
+			<column name="DESCRIPTION" type="VARCHAR2(500 CHAR)" />
+			<column name="LAST_MOD_USER" type="VARCHAR2(200 CHAR)" />
+			<column name="LAST_MOD_DATE" type="date" />
+		</createTable>
+	</changeSet>
+	<changeSet author="LabUser1 (generated)" id="1442254534068-43">
+		<createTable tableName="STAGE_ENTITY_GROUPS">
+			<column name="ENTITY_GROUP_ID" type="VARCHAR2(200 CHAR)">
+				<constraints nullable="false" />
+			</column>
+			<column name="GROUP_ID" type="VARCHAR2(200 CHAR)">
+				<constraints nullable="false" />
+			</column>
+			<column name="ENTITY_ID" type="VARCHAR2(200 CHAR)">
+				<constraints nullable="false" />
+			</column>
+		</createTable>
+	</changeSet>
+	<changeSet author="LabUser1 (generated)" id="1442254534068-44">
+		<createTable tableName="STAGE_ENTITY_LOG">
+			<column name="LOG_ID" type="VARCHAR2(200 CHAR)">
+				<constraints nullable="false" />
+			</column>
+			<column name="ENTITY_ID" type="VARCHAR2(200 CHAR)">
+				<constraints nullable="false" />
+			</column>
+			<column name="USER_NAME" type="VARCHAR2(200 CHAR)">
+				<constraints nullable="false" />
+			</column>
+			<column name="LOG_DATA" type="VARCHAR2(2000 CHAR)">
+				<constraints nullable="false" />
+			</column>
+			<column name="LOG_TIME" type="date">
+				<constraints nullable="false" />
+			</column>
+		</createTable>
+	</changeSet>
+	<changeSet author="LabUser1 (generated)" id="1442254534068-45">
+		<createTable tableName="STAGE_ENTITY_PARAMS">
+			<column name="ENTITY_PARAM_ID" type="VARCHAR2(200 CHAR)">
+				<constraints nullable="false" />
+			</column>
+			<column name="ENTITY_ID" type="VARCHAR2(200 CHAR)">
+				<constraints nullable="false" />
+			</column>
+			<column name="PARAM_NAME" type="VARCHAR2(200 CHAR)">
+				<constraints nullable="false" />
+			</column>
+			<column name="PARAM_VALUE" type="VARCHAR2(1000 CHAR)" />
+			<column name="LAST_MOD_USER" type="VARCHAR2(200 CHAR)" />
+			<column name="LAST_MOD_DATE" type="date" />
+		</createTable>
+	</changeSet>
+	<changeSet author="LabUser1 (generated)" id="1442254534068-46">
+		<createTable tableName="STAGE_FILE_VALIDATION_TESTS">
+			<column name="VALIDATION_TEST_ID" type="VARCHAR2(200 CHAR)">
+				<constraints nullable="false" />
+			</column>
+			<column name="FILE_ID" type="VARCHAR2(200 CHAR)">
+				<constraints nullable="false" />
+			</column>
+			<column name="TEST_FILE_NAME" type="VARCHAR2(300 CHAR)">
+				<constraints nullable="false" />
+			</column>
+			<column name="SUBMAILBOX_NAME" type="VARCHAR2(100 CHAR)" />
+		</createTable>
+	</changeSet>
+	<changeSet author="LabUser1 (generated)" id="1442254534068-47">
+		<createTable tableName="STAGE_FLOW_PARAMS">
+			<column name="FLOW_PARAM_ID" type="VARCHAR2(200 CHAR)">
+				<constraints nullable="false" />
+			</column>
+			<column name="FLOW_ID" type="VARCHAR2(200 CHAR)">
+				<constraints nullable="false" />
+			</column>
+			<column name="PARAM_NAME" type="VARCHAR2(200 CHAR)">
+				<constraints nullable="false" />
+			</column>
+			<column name="PARAM_VALUE" type="VARCHAR2(1000 CHAR)" />
+			<column name="LAST_MOD_USER" type="VARCHAR2(200 CHAR)" />
+			<column name="LAST_MOD_DATE" type="date" />
+		</createTable>
+	</changeSet>
+	<changeSet author="LabUser1 (generated)" id="1442254534068-48">
+		<createTable tableName="STAGE_ONBOARDING_WORKFLOW">
+			<column name="WORKFLOW_ID" type="VARCHAR2(200 CHAR)">
+				<constraints nullable="false" />
+			</column>
+			<column name="WORKFLOW_NAME" type="VARCHAR2(200 CHAR)">
+				<constraints nullable="false" />
+			</column>
+			<column name="PRODUCER_ID" type="VARCHAR2(200 CHAR)" />
+			<column name="CONSUMER_ID" type="VARCHAR2(200 CHAR)" />
+			<column name="PRODUCER_COMM_ID" type="VARCHAR2(200 CHAR)" />
+			<column name="CONSUMER_COMM_ID" type="VARCHAR2(200 CHAR)" />
+			<column name="DATA_FLOW_ID" type="VARCHAR2(200 CHAR)" />
+			<column name="LAST_MOD_USER" type="VARCHAR2(200 CHAR)" />
+			<column name="LAST_MOD_DATE" type="date" />
+		</createTable>
+	</changeSet>
+	<changeSet author="LabUser1 (generated)" id="1442254534068-49">
+		<createTable tableName="USER_TASKS">
+			<column name="TASK_ID" type="VARCHAR2(200 CHAR)">
+				<constraints nullable="false" />
+			</column>
+			<column name="ENTITY_ID" type="VARCHAR2(200 CHAR)" />
+			<column defaultValueNumeric="0" name="COMPLETED_FLAG" type="NUMBER(*, 0)">
+				<constraints nullable="false" />
+			</column>
+			<column name="ASSIGNED_USER" type="VARCHAR2(200 CHAR)">
+				<constraints nullable="false" />
+			</column>
+			<column name="TASK_TITLE" type="VARCHAR2(200 CHAR)">
+				<constraints nullable="false" />
+			</column>
+			<column name="TASK_NOTE" type="VARCHAR2(2000 CHAR)" />
+			<column name="TASK_DUE_DATE" type="VARCHAR2(20 CHAR)">
+				<constraints nullable="false" />
+			</column>
+			<column name="CREATED_BY_USER" type="VARCHAR2(200 CHAR)">
+				<constraints nullable="false" />
+			</column>
+			<column name="TASK_CREATED_DATE" type="date">
+				<constraints nullable="false" />
+			</column>
+			<column name="COMPLETED_DATE" type="date" />
+		</createTable>
+	</changeSet>
+
+
+
+</databaseChangeLog>

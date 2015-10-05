@@ -4,7 +4,7 @@
 	<groupId>com.comresource</groupId>
 	<artifactId>liquibase</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<packaging>war</packaging>
+	<packaging>pom</packaging>
 
 
 	<build>
@@ -23,52 +23,49 @@
 				<groupId>org.liquibase</groupId>
 				<artifactId>liquibase-maven-plugin</artifactId>
 				<version>3.4.1</version>
-				<!-- <configuration>
-					<propertyFile>src/main/resources/liquibase/liquibase.properties</propertyFile>
-					
-					this is for ORACLE
-					<changeLogFile>src/main/resources/liquibase/changelogORACLE.xml</changeLogFile>
-					 <driver>oracle.jdbc.OracleDriver</driver>
-					<url>jdbc:oracle:thin:@vmbiumft3:1521:orcl</url>
-					<username>liquibase</username>
-					<password>password</password>
-					for MSSQL
-					<changeLogFile>src/main/resources/liquibase/changelogMSSQL.xml</changeLogFile>
-					<driver>com.microsoft.sqlserver.jdbc.SQLServerDriver</driver>
-					<url>jdbc:sqlserver://192.168.2.38:1433;databaseName=liquibase</url>
-					<username>liquibase</username>
-					<password>password</password>
-					for DB2
-					<changeLogFile>src/main/resources/liquibase/changelogMSSQL.xml</changeLogFile>
-					<driver>com.ibm.db2.jcc.DB2Driver</driver>
-					<url>jdbc:db2://192.168.2.43:50000/test</url>
-					<username>Administrator</username>
-					<password>@lm0stD0ne</password>
-					
-				</configuration> -->
+				<!-- <configuration> <propertyFile>src/main/resources/liquibase/liquibase.properties</propertyFile> 
+					this is for ORACLE <changeLogFile>src/main/resources/liquibase/changelogORACLE.xml</changeLogFile> 
+					<driver>oracle.jdbc.OracleDriver</driver> <url>jdbc:oracle:thin:@vmbiumft3:1521:orcl</url> 
+					<username>liquibase</username> <password>password</password> for MSSQL <changeLogFile>src/main/resources/liquibase/changelogMSSQL.xml</changeLogFile> 
+					<driver>com.microsoft.sqlserver.jdbc.SQLServerDriver</driver> <url>jdbc:sqlserver://192.168.2.38:1433;databaseName=liquibase</url> 
+					<username>liquibase</username> <password>password</password> for DB2 <changeLogFile>src/main/resources/liquibase/changelogMSSQL.xml</changeLogFile> 
+					<driver>com.ibm.db2.jcc.DB2Driver</driver> <url>jdbc:db2://192.168.2.43:50000/test</url> 
+					<username>Administrator</username> <password>@lm0stD0ne</password> </configuration> -->
 				<executions>
 					<execution>
-                        <id>oracle</id>
-                        <phase>process-resources</phase>
-                        <configuration>
-                            <propertyFile>src/main/resources/liquibase/oracle/dev.properties</propertyFile>
-                            <changeLogFile>src/main/resources/liquibase/oracle/changelogORACLE.xml</changeLogFile>
-                        </configuration>
-                        <goals>
-                            <goal>update</goal>
-                        </goals>
-                    </execution>
-                    <execution>
-                        <id>db2</id>
-                        <phase>process-resources</phase>
-                        <configuration>
-                            <propertyFile>src/main/resources/liquibase/db2/dev.properties</propertyFile>
-                            <changeLogFile>src/main/resources/liquibase/db2/changelogDB2.xml</changeLogFile>
-                        </configuration>
-                        <goals>
-                            <goal>update</goal>
-                        </goals>
-                    </execution>
+						<id>oracle</id>
+						<phase>process-resources</phase>
+						<configuration>
+							<propertyFile>src/main/resources/liquibase/oracle/dev.properties</propertyFile>
+							<changeLogFile>src/main/resources/liquibase/oracle/sequenceProcess.xml</changeLogFile>
+						</configuration>
+						<goals>
+							<goal>update</goal>
+						</goals>
+					</execution>
+					<execution>
+						<id>db2</id>
+						<phase>process-resources</phase>
+						<configuration>
+							<propertyFile>src/main/resources/liquibase/db2/dev.properties</propertyFile>
+							<changeLogFile>src/main/resources/liquibase/db2/sequenceProcessDB2.xml</changeLogFile>
+						</configuration>
+						<goals>
+							<goal>update</goal>
+						</goals>
+					</execution>
+
+					<execution>
+						<id>mssql</id>
+						<phase>process-resources</phase>
+						<configuration>
+							<propertyFile>src/main/resources/liquibase/mssql/dev.properties</propertyFile>
+							<changeLogFile>src/main/resources/liquibase/mssql/sequenceProcessMSSQL.xml</changeLogFile>
+						</configuration>
+						<goals>
+							<goal>update</goal>
+						</goals>
+					</execution>
 				</executions>
 			</plugin>
 		</plugins>
@@ -81,33 +78,26 @@
 			<artifactId>ojdbc6</artifactId>
 			<version>11.2.0</version>
 		</dependency>
-<dependency>
+		<dependency>
 			<groupId>com.microsoft.sqlserver</groupId>
 			<artifactId>sqljdbc4</artifactId>
 			<version>4.0</version>
 		</dependency>
-		
-			
-		<dependency>
-    <artifactId>com.ibm.db2.jcc</artifactId>
-    <groupId>db2jcc</groupId>
-    <version>4.9.78</version>
-    <scope>system</scope>
-    <systemPath>${basedir}/my-repo/com/ibm/db2/jcc/db2jcc/4.9.78/db2jcc-4.9.78.jar</systemPath>
-</dependency>
-		
 
-		
+
+		<dependency>
+			<artifactId>com.ibm.db2.jcc</artifactId>
+			<groupId>db2jcc</groupId>
+			<version>4.9.78</version>
+			<scope>system</scope>
+			<systemPath>${basedir}/my-repo/com/ibm/db2/jcc/db2jcc/4.9.78/db2jcc-4.9.78.jar</systemPath>
+		</dependency>
 
 	</dependencies>
-	
 
 
-<!-- <repositories>
-  <repository>
-    <id>my-local-repo</id>
-    <name>temporary repository for other jar files</name>
-    <url>file:${project.basedir}/my-repo</url>
-  </repository>
-</repositories> -->
+
+	<!-- <repositories> <repository> <id>my-local-repo</id> <name>temporary 
+		repository for other jar files</name> <url>file:${project.basedir}/my-repo</url> 
+		</repository> </repositories> -->
 </project>
