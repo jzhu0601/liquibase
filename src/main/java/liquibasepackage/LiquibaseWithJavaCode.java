@@ -125,7 +125,7 @@ public class LiquibaseWithJavaCode {
 
 	public static void main(String[] args) throws SQLException,
 			LiquibaseException {
-		executeUpdateForOracle();
+		executeUpdateForDB2();
 	}
 
 }
